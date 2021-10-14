@@ -6,7 +6,7 @@
 /*   By: jparejo- <jparejo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 09:52:37 by jparejo-          #+#    #+#             */
-/*   Updated: 2021/10/06 12:53:26 by jparejo-         ###   ########.fr       */
+/*   Updated: 2021/10/13 13:43:25 by jparejo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_return_num(const char *str, int count, int sign)
 {
-	int	num;
+	unsigned long long	num;
 
 	num = str[count] - '0';
 	while (str[count + 1] >= '0' && str[count + 1] <= '9')
@@ -23,6 +23,10 @@ static int	ft_return_num(const char *str, int count, int sign)
 		num += str[count + 1] - '0';
 		count++;
 	}
+	if (sign != '-' && num > 9223372036854775807)
+		return (-1);
+	if (sign == '-' && num > 9223372036854775807)
+		return (0);
 	if (sign == '-')
 		return (-num);
 	return (num);

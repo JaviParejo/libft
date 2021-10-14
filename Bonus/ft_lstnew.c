@@ -1,40 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jparejo- <jparejo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/06 10:22:11 by jparejo-          #+#    #+#             */
-/*   Updated: 2021/10/13 12:28:00 by jparejo-         ###   ########.fr       */
+/*   Created: 2021/10/14 11:52:25 by jparejo-          #+#    #+#             */
+/*   Updated: 2021/10/14 12:20:32 by jparejo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
-{
-	unsigned int	count;
+t_list	*ft_lstnew(void *content)
+{	
+	int				i;
+	void			*dst;
+	struct s_list	*next;
 
-	if (dstsize == 0)
-		return (ft_strlen(src));
-	count = 0;
-	while (dstsize > 1 && *src)
+	next = NULL;
+	i = 0;
+	while (!content)
+		i++;
+	dst = malloc(sizeof(*content) * (i + 1));
+	i = 0;
+	while (!content)
 	{
-		*dst = *src;
-		++dst;
-		++src;
-		--dstsize;
-		++count;
+		dst[i] = content[i];
+		i++;
 	}
-	*dst = '\0';
-	while (*dst || *src)
-	{
-		if (*src)
-		{
-			++src;
-			++count;
-		}
-	}
-	return (count);
+	dst[i] = '\0';
+	return (dst);
 }

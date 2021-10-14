@@ -6,7 +6,7 @@
 /*   By: jparejo- <jparejo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 10:49:10 by jparejo-          #+#    #+#             */
-/*   Updated: 2021/10/07 13:59:04 by jparejo-         ###   ########.fr       */
+/*   Updated: 2021/10/14 12:07:18 by jparejo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdio.h>
 # include <string.h>
 # include <unistd.h>
-
 
 int			ft_isalpha(int c);
 
@@ -61,7 +60,7 @@ int			ft_memcmp(const void *s1, const void *s2, size_t n);
 
 int			ft_atoi(const char *str);
 
-void		*ft_calloc (size_t num, size_t size);
+void		*ft_calloc(size_t num, size_t size);
 
 char		*ft_strdup(const char *src);
 
@@ -79,12 +78,12 @@ void		ft_putchar_fd(char c, int fd);
 
 void		ft_putendl_fd(char *s, int fd);
 
-void 		ft_putnbr_fd(int n, int fd);
+void		ft_putnbr_fd(int n, int fd);
 
 void		ft_putstr_fd(char *s, int fd);
 
 void		ft_striteri(char *s, void (*f)(unsigned int, char*));
 
 char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-                        
+
 #endif

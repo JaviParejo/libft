@@ -6,13 +6,10 @@
 /*   By: jparejo- <jparejo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 10:31:28 by jparejo-          #+#    #+#             */
-/*   Updated: 2021/10/06 10:31:37 by jparejo-         ###   ########.fr       */
+/*   Updated: 2021/10/13 16:27:13 by jparejo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include "libft.h"
 
 static	int	ft_contar(char const *s, char c)
@@ -54,30 +51,39 @@ static	int	ft_lenword(char const *s, char c)
 	return (len);
 }
 
-char	**ft_split(const char *s, char c)
+char	**ft_fill(char const *s, char **des, char c)
 {
 	int		i;
 	int		j;
 	int		k;
-	char	**str;
 
-	str = (char **)malloc(sizeof(*str) * (ft_contar(s, c) + 1));
-	if (!s || !(str))
-		return (NULL);
 	i = -1;
 	j = 0;
 	while (++i < ft_contar(s, c))
 	{
 		k = 0;
-		str[i] = ft_calloc(ft_lenword(&s[j], c) + 1, 1);
-		if (!(str[i]))
-			str[i] = NULL;
+		des[i] = ft_calloc(ft_lenword(&s[j], c) + 1, 1);
+		if (!(des[i]))
+			des[i] = NULL;
 		while (s[j] == c)
 			j++;
 		while (s[j] != c && s[j])
-			str[i][k++] = s[j++];
-		str[i][k] = '\0';
+			des[i][k++] = s[j++];
+		des[i][k] = '\0';
 	}
-	str[i] = 0;
+	des[i] = 0;
+	return (des);
+}
+
+char	**ft_split(const char *s, char c)
+{
+	char	**str;
+
+	if (!s)
+		return (NULL);
+	str = (char **)malloc(sizeof(*str) * (ft_contar(s, c) + 1));
+	if (!(str))
+		return (NULL);
+	str = ft_fill(s, str, c);
 	return (str);
 }
