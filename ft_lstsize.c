@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jparejo- <jparejo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/14 12:29:14 by jparejo-          #+#    #+#             */
-/*   Updated: 2021/10/14 12:30:38 by jparejo-         ###   ########.fr       */
+/*   Created: 2021/10/14 12:27:25 by jparejo-          #+#    #+#             */
+/*   Updated: 2021/10/15 13:35:11 by jparejo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+int	ft_lstsize(t_list *lst)
 {
 	int	i;
 
 	i = 0;
-	while (!lst)
+	while (lst != NULL)
+	{
 		i++;
-	return (lst[i - 1]);
+		lst = lst->next;
+	}
+	return (i);
 }

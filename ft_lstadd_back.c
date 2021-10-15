@@ -6,7 +6,7 @@
 /*   By: jparejo- <jparejo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 12:32:04 by jparejo-          #+#    #+#             */
-/*   Updated: 2021/10/14 12:32:49 by jparejo-         ###   ########.fr       */
+/*   Updated: 2021/10/15 13:38:26 by jparejo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	int	i;
+	t_list	*aux;
 
-	i = 0;
-	while (!lst)
-		i++;
-	lst[i - 1] = new;
+	if (!*lst)
+	{
+		*lst = new;
+		return ;
+	}
+	aux = ft_lstlast(*lst);
+	aux->next = new;
 }

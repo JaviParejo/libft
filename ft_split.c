@@ -6,7 +6,7 @@
 /*   By: jparejo- <jparejo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 10:31:28 by jparejo-          #+#    #+#             */
-/*   Updated: 2021/10/13 16:27:13 by jparejo-         ###   ########.fr       */
+/*   Updated: 2021/10/15 12:19:23 by jparejo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,13 +62,17 @@ char	**ft_fill(char const *s, char **des, char c)
 	while (++i < ft_contar(s, c))
 	{
 		k = 0;
-		des[i] = ft_calloc(ft_lenword(&s[j], c) + 1, 1);
+		des[i] = malloc(sizeof(*s) * (ft_lenword(&s[j], c) + 1));
 		if (!(des[i]))
 			des[i] = NULL;
 		while (s[j] == c)
 			j++;
 		while (s[j] != c && s[j])
-			des[i][k++] = s[j++];
+		{
+			des[i][k] = s[j];
+			k++;
+			j++;
+		}
 		des[i][k] = '\0';
 	}
 	des[i] = 0;
