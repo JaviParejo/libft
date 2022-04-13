@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jparejo- <jparejo-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: javierparejo <javierparejo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 10:49:10 by jparejo-          #+#    #+#             */
-/*   Updated: 2021/10/15 13:47:31 by jparejo-         ###   ########.fr       */
+/*   Updated: 2022/04/08 03:14:13 by javierparej      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <stdio.h>
 # include <string.h>
 # include <unistd.h>
+# include "gnl/get_next_line.h"
+# include "ft_printf/ft_printf.h"
 
 typedef struct s_list
 {

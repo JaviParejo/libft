@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jparejo- <jparejo-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: javierparejo <javierparejo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 10:34:32 by jparejo-          #+#    #+#             */
-/*   Updated: 2021/10/06 10:34:38 by jparejo-         ###   ########.fr       */
+/*   Updated: 2022/04/08 03:14:43 by javierparej      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static char	*allocate_str(int size, int n)
 	int		i;
 
 	i = 0;
-	if (n < 0 )
+	if (n < 0)
 		i = 1;
 	str = (char *)malloc(sizeof(char) * (size + 1 + i));
 	if (!str)
@@ -58,7 +58,7 @@ char	*ft_itoa(int n)
 	str = allocate_str(size, n);
 	if (!str)
 		return (NULL);
-	if (n < 0 )
+	if (n < 0)
 	{
 		str[0] = '-';
 		size++;
